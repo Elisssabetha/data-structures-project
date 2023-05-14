@@ -44,6 +44,14 @@ class Stack:
         self.top = self.top.next_node
         return data
 
+    def __str__(self):
+        current = self.top
+        items = []
+        while current:
+            items.append(current.data)
+            current = current.next_node
+        return f'Stack({", ".join(items)})'
+
 
 
 
