@@ -1,13 +1,14 @@
 class Node:
     """Класс для узла односвязного списка"""
-    def __init__(self, data=None, next_node=None):
 
+    def __init__(self, data=None, next_node=None):
         self.data = data
         self.next_node = next_node
 
 
 class LinkedList:
     """Класс для односвязного списка"""
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -44,3 +45,24 @@ class LinkedList:
 
         ll_string += 'None'
         return ll_string
+
+    def to_list(self):
+        current = self.head
+        items = []
+        while current:
+            items.append(current.data)
+            current = current.next_node
+        return items
+
+    def get_data_by_id(self, el_id):
+            current = self.head
+            while current:
+                try:
+                    if current.data['id'] == el_id:
+                        return current.data
+                except TypeError:
+                    print('Данные не являются словарем или в словаре нет id')
+                current = current.next_node
+
+
+
